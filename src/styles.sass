@@ -1,0 +1,123 @@
+$light: #F0F2F4
+$primary: #303234
+$secondary: #00B5CC
+$tertiary: #F2784B
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+  outline: none
+
+body
+  color: $light
+  font-family: Inter, sans-serif
+  font-size: 14px
+  margin: 0
+  overflow: hidden
+  padding: 0
+
+.presentation
+  display: flex
+  overflow: hidden
+  position: relative
+  transition: right 200ms ease-in-out
+
+  .slide
+    background-color: $primary
+    height: 100vh
+    padding: 12vh 0
+    position: relative
+    width: 100vw
+
+    &.secondary
+      background-color: darken($secondary, 15%)
+
+    &.tertiary
+      background-color: $tertiary
+
+    &.center
+      align-items: center
+      display: flex
+      justify-content: center
+
+    .slide-content
+      margin: 0 auto
+      max-width: 1200px
+
+      h1
+        font-size: 72px
+
+      h2
+        font-size: 60px
+
+      h3
+        font-size: 48px
+        margin: 8px 0
+
+      ul, div, p
+        font-family: Consolas
+        font-size: 40px
+        line-height: 1.5
+        margin: 0
+
+        a
+          color: $secondary
+
+      code, pre
+        font-family: Consolas
+
+      ul
+        padding: 0
+
+        li
+          list-style: none
+
+          &::before
+            content: '> '
+
+          ul
+            li
+              font-size: 36px
+              opacity: 0.75
+
+              &::before
+                content: '\00a0\00a0> '
+
+.progress
+  align-items: center
+  bottom: 32px
+  display: flex
+  justify-content: center
+  position: fixed
+  left: 50%
+  transform: translateX(-50%)
+
+  .progress-dot
+    background-color: $light
+    border-radius: 50%
+    height: 8px
+    opacity: .3
+    width: 8px
+
+    &+.progress-dot
+      margin-left: 12px
+
+    &.fill
+      opacity: 1
+
+// Custom classes
+// TODO: make these themeable
+
+.fill
+  .slide-content
+    *:first-child
+      height: 100vh
+      left: 0
+      object-fit: contain
+      position: absolute
+      top: 0
+      width: 100vw
+
+.split
+  .slide-content
