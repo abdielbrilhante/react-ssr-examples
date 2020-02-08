@@ -61,7 +61,9 @@
 
 ## O que ferramentas disponíveis já fazem
 
-- Builds de desenvolvimento e produção
+- create-next-app
+- create-razzle-app
+- Builds de produção
 - Code splitting
 - Routing
 - Hot module replacement (server **e** client)
@@ -82,6 +84,12 @@
 
 ---
 
+@class.center
+
+![](https://flaviocopes.com/nextjs-link-two-pages/Screen%20Shot%202019-11-04%20at%2015.39.40.png)
+
+---
+
 ## Desafios
 
 - Boa parte dos problemas é de configuração, e não do dia-a-dia de desenvolvimento
@@ -91,6 +99,21 @@
   + getInitialProps
   + getDataFromTree (Apollo Client)
   + Como seria no Redux/useReducer?
+
+---
+
+```jsx
+const AboutPage = ({ data }) => {
+  ...
+};
+
+AboutPage.getInitialProps = async () => {
+  const response = waitForRequest('/content/about');
+  return response.data;
+};
+
+export default AboutPage;
+```
 
 ---
 
